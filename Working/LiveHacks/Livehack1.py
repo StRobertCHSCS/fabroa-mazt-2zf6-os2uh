@@ -3,6 +3,11 @@
 
 # User Interface Introduction
 print("""
+-----------------------------------
+| FAHRENHEIT TO CELSIUS CONVERTER |                            - by George MZ
+-----------------------------------
+""")
+print("""
 This program will convert a Fahrenheit temperature into Celsius degrees
 """)
 
@@ -10,6 +15,7 @@ This program will convert a Fahrenheit temperature into Celsius degrees
 input("Press enter to continue")
 
 # Defining the Fahrenheit temperature for which the user inputs
+print(" ")
 fahrenheit_temperature = int(input("Enter your Fahrenheit temperature: "))
 
 # Defining Celsius in terms of Fahrenheit; prints out the corresponding Celsius
