@@ -1,0 +1,8 @@
+{
+    "python.testing.pytestArgs": [
+        "Masters_DO_NOT_EDIT"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
+}

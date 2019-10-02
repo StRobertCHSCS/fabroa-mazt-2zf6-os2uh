@@ -5,6 +5,8 @@
 print("This program will give you the area and width of a given length and")
 print("width.")
 
+input("Press enter to continue")
+
 length = int(input("Enter the length you wish to calculate for: "))
 width = int(input("Enter the width you wish to calculate for: "))
 

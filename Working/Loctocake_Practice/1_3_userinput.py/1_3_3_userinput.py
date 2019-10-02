@@ -5,6 +5,8 @@
 print("This program will give you the area of a given triangle given the base")
 print("and height.")
 
+input("Press enter to continue")
+
 base = int(input("Enter the base you wish to calculate with: "))
 height = int(input("Enter the height you wish to calculate with: "))
 

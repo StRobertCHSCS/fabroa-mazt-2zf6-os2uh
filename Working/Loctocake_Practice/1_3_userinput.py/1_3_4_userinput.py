@@ -9,7 +9,7 @@ print("have.")
 next = input("Press enter to continue")
 
 print("This program will print how many apples each student will get were the")
-print("apples split among the students.")
+print("apples split evenly among the students.")
 
 next = input("Press enter to continue")
 

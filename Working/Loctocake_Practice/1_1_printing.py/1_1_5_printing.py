@@ -9,6 +9,7 @@ print(a)
 f = 50
 
 # Switching the "c" and "b" lines
+
 c = 20
 print(c)
 
