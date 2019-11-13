@@ -19,10 +19,56 @@ prompt them to enter the hypotenuse).
 import math
 
 print("<info_on_program>")
-n = 0
-print("Enter the sides of the triangle")
-while n <= 3:
-    numbers.append(float(input()))
-    n += 1
-numbers.sort()
+numbers = []
+equisides = 0
 
+while_condition = 1
+while while_condition == 1:
+    n = 0
+    print("Enter the sides of the triangle")
+    while n <= 2:
+        numbers.append(float(input()))
+        n += 1
+    numbers.sort()
+
+    if numbers[0] + numbers[1] <= numbers[2]:
+        print("Invalid triangle side values")
+    else:
+        while_condition = 0
+
+if numbers[0] == numbers[1] or numbers[1] == numbers[2]:
+    if numbers[0] == numbers[2]:
+        equisides = 3
+    else:
+        equisides = 2
+else:
+    equisides = 1
+
+two_legs_angle_radians = math.acos((numbers[0]**2 + numbers[1]**2 - 
+numbers[2]**2)/(2*numbers[0]*numbers[1]))
+
+two_legs_angle_degrees = math.degrees(two_legs_angle_radians)
+
+smallest_largest_angle_radians = math.acos((numbers[0]**2 + numbers[2]**2 -
+numbers[1]**2)/(2*numbers[0]*numbers[2]))
+
+middle_largest_angle_radians = math.acos((numbers[1]**2 + numbers[2]**2 -
+numbers[0]**2)/(2*numbers[1]*numbers[2]))
+
+if equisides = 3:
+    equisides_value = str("equilateral")
+if equisides = 2:
+    equisides_value = str("isosceles")
+if equisides = 1:
+    equisides_value = str("scalene")
+
+if round(two_legs_angle_degrees, 3) == 90:
+    angle_value = str("right")
+if round(two_legs_angle_degrees, 3) <= 90:
+    angle_value = str("acute")
+if round(two_legs_angle_degrees, 3) >= 90:
+    angle_value = str("obtuse")
+
+angle_style = int(input("Would you prefer your angle values in"))
+print("sides =", str(equisides), ", angle =", 
+str(round(two_legs_angle_degrees, 5)))
