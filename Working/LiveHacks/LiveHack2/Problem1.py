@@ -18,10 +18,14 @@ prompt them to enter the hypotenuse).
 '''
 import math
 
-print("<info_on_program>")
+print(" ")
+print("Insert three sides of a triangle and this program will explore all "\
+"computable values of that triangle.")
+print(" ")
 numbers = []
 equisides = 0
 
+# get sides of triangle
 while_condition = 1
 while while_condition == 1:
     n = 0
@@ -33,9 +37,11 @@ while while_condition == 1:
 
     if numbers[0] + numbers[1] <= numbers[2]:
         print("Invalid triangle side values")
+        numbers = []
     else:
         while_condition = 0
 
+# computing angle type of triangle
 if numbers[0] == numbers[1] or numbers[1] == numbers[2]:
     if numbers[0] == numbers[2]:
         equisides = 3
@@ -44,31 +50,80 @@ if numbers[0] == numbers[1] or numbers[1] == numbers[2]:
 else:
     equisides = 1
 
+# critical angle
 two_legs_angle_radians = math.acos((numbers[0]**2 + numbers[1]**2 - 
 numbers[2]**2)/(2*numbers[0]*numbers[1]))
 
 two_legs_angle_degrees = math.degrees(two_legs_angle_radians)
 
+# other angles
 smallest_largest_angle_radians = math.acos((numbers[0]**2 + numbers[2]**2 -
 numbers[1]**2)/(2*numbers[0]*numbers[2]))
 
 middle_largest_angle_radians = math.acos((numbers[1]**2 + numbers[2]**2 -
 numbers[0]**2)/(2*numbers[1]*numbers[2]))
 
-if equisides = 3:
+# sides equilateral, isosceles or scalene?
+if equisides == 3:
     equisides_value = str("equilateral")
-if equisides = 2:
+if equisides == 2:
     equisides_value = str("isosceles")
-if equisides = 1:
+if equisides == 1:
     equisides_value = str("scalene")
 
-if round(two_legs_angle_degrees, 3) == 90:
-    angle_value = str("right")
+# angles right, acute or obtuse?
 if round(two_legs_angle_degrees, 3) <= 90:
     angle_value = str("acute")
 if round(two_legs_angle_degrees, 3) >= 90:
     angle_value = str("obtuse")
+if round(two_legs_angle_degrees, 3) == 90:
+    angle_value = str("right")
 
-angle_style = int(input("Would you prefer your angle values in"))
-print("sides =", str(equisides), ", angle =", 
-str(round(two_legs_angle_degrees, 5)))
+# get preferred angle style
+while_condition2 = 0
+while while_condition2 == 0:
+    angle_style = int(input("Press 1 for angle values in degrees. Press 2 for"\
+    " values in radians."))
+    if angle_style != 1 and angle_style != 2:
+        print("Invalid value")
+    else:
+        while_condition2 = 1
+
+# calculate perimeter
+perimeter = numbers[0] + numbers[1] + numbers[2]
+
+# calculate area
+semiperimeter = perimeter/2
+area = math.sqrt(semiperimeter*(semiperimeter - numbers[0])*(semiperimeter -
+numbers[1])*(semiperimeter - numbers[2]))
+
+# print all values of triangle
+print(" ")
+print("------------------------------------------------")
+print("This triangle is a " + angle_value + " " + equisides_value + " triangle.")
+print("Triangle sides:")
+print(str(round(numbers[0], 3)))
+print(str(round(numbers[1], 3)))
+print(str(round(numbers[2], 3)))
+print(" ")
+
+print("Triangle angles:")
+if angle_style == 1:
+    # angles in degrees
+    print(str(round(two_legs_angle_degrees, 3)))
+    print(str(math.degrees(round(smallest_largest_angle_radians, 3))))
+    print(str(math.degrees(round(middle_largest_angle_radians, 3))))
+elif angle_style == 2:
+    # angles in radians
+    print(str(round(two_legs_angle_radians, 3)))
+    print(str(round(smallest_largest_angle_radians, 3)))
+    print(str(round(middle_largest_angle_radians, 3)))
+else:
+    print("Error. Please restart program")
+
+print(" ")
+print("Perimeter:")
+print(str(round(perimeter, 3)))
+print("Area:")
+print(str(round(area, 3)))
+print("------------------------------------------------")
