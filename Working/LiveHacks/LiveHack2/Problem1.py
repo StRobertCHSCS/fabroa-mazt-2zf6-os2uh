@@ -82,8 +82,9 @@ if round(two_legs_angle_degrees, 3) == 90:
 # get preferred angle style
 while_condition2 = 0
 while while_condition2 == 0:
-    angle_style = int(input("Press 1 for angle values in degrees. Press 2 for"\
-    " values in radians."))
+    print("Press 1 for angle values in degrees. Press 2 for"\
+    " values in radians.")
+    angle_style = int(input(""))
     if angle_style != 1 and angle_style != 2:
         print("Invalid value")
     else:
@@ -111,8 +112,8 @@ print("Triangle angles:")
 if angle_style == 1:
     # angles in degrees
     print(str(round(two_legs_angle_degrees, 3)))
-    print(str(math.degrees(round(smallest_largest_angle_radians, 3))))
-    print(str(math.degrees(round(middle_largest_angle_radians, 3))))
+    print(str(round(math.degrees(smallest_largest_angle_radians),3)))
+    print(str(round(math.degrees(middle_largest_angle_radians), 3)))
 elif angle_style == 2:
     # angles in radians
     print(str(round(two_legs_angle_radians, 3)))
